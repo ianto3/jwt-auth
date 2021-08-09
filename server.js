@@ -1,5 +1,8 @@
 const express = require("express");
 const cors = require("cors");
+const connectDB = require("./config/dbconnection");
+
+connectDB(); // Connects to db and creates initial 3 roles
 
 const app = express();
 
