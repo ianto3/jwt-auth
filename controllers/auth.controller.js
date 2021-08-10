@@ -6,12 +6,12 @@ const User = db.user;
 const Role = db.role;
 
 
-exports.signup = (req, res) => {
+exports.signup = async (req, res) => {
 
     const user = new User({
         username: req.body.username,
         email: req.body.email,
-        password: bcrypt.hashSync(req.body.password, 8)
+        password: await bcrypt.hashSync(req.body.password, 8)
     });
 
     user.save((err, user) => {
